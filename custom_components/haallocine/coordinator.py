@@ -34,7 +34,7 @@ class AllocineCoordinator(DataUpdateCoordinator[list[AllocineMovie]]):
         )
 
         # Initialize API with cache directory
-        cache_dir = Path(hass.config.path("media", "allocine"))
+        cache_dir = Path("/media/allocine")
         self.api = AllocineAPI(cache_dir)
 
         # Track scheduled update

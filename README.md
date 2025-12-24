@@ -68,7 +68,7 @@ service: haallocine.refresh
 
 ### Caching
 
-- **Location**: `{hass_config_dir}/media/allocine/`
+- **Location**: `/media/allocine/`
 - **Filenames**: `1.jpg`, `2.jpg`, `3.jpg` (ranked by popularity)
 - **Cleanup**: Cache is cleared before each update
 - **Size**: ~3 images × 200KB = ~600KB per week
