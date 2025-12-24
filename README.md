@@ -19,9 +19,27 @@ A Home Assistant custom integration that displays the **top 3 most popular movie
 4. **Filters** to keep only the top 3 most anticipated movies
 5. **Downloads** poster images to `.cache/haallocine/` directory
 6. **Serves** images via HTTP view at `/api/haallocine/poster/{movie_id}.jpg`
-7. **Updates** automatically every Wednesday at midnight
+7. **Updates** automatically every Wednesday at 3:00 AM
 
 ## Installation
+
+### HACS Installation (Recommended)
+
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=JulienDeveaux&repository=HAAllocine&category=integration)
+
+1. Click the badge above or manually add this repository to HACS:
+   - Open HACS in your Home Assistant
+   - Click on **Integrations**
+   - Click the **3 dots** in the top right corner
+   - Select **Custom repositories**
+   - Add `https://github.com/JulienDeveaux/HAAllocine` as repository
+   - Select **Integration** as category
+   - Click **Add**
+2. Search for "Allocine Weekly Releases" in HACS
+3. Click **Download**
+4. Restart Home Assistant
+5. Go to **Settings** → **Devices & Services** → **Add Integration**
+6. Search for "Allocine Weekly Releases" and add it
 
 ### Manual Installation
 

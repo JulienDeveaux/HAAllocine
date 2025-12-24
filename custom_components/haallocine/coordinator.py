@@ -71,10 +71,10 @@ class AllocineCoordinator(DataUpdateCoordinator[list[AllocineMovie]]):
             raise UpdateFailed(f"Unexpected error: {err}") from err
 
     def _schedule_next_wednesday_update(self) -> None:
-        """Schedule update for next Wednesday at 00:00."""
+        """Schedule update for next Wednesday at 03:00."""
         # Cancel existing scheduled update
         if self._scheduled_update:
-            self._scheduled_update()
+            self._scheduled_update.cancel()
             self._scheduled_update = None
 
         # Calculate next Wednesday
@@ -87,7 +87,7 @@ class AllocineCoordinator(DataUpdateCoordinator[list[AllocineMovie]]):
 
         next_wednesday = now + timedelta(days=days_until_wednesday)
         next_wednesday = next_wednesday.replace(
-            hour=0, minute=0, second=0, microsecond=0
+            hour=3, minute=0, second=0, microsecond=0
         )
 
         seconds_until_wednesday = (next_wednesday - now).total_seconds()
@@ -108,5 +108,5 @@ class AllocineCoordinator(DataUpdateCoordinator[list[AllocineMovie]]):
         """Cancel scheduled updates on shutdown."""
         _LOGGER.info("Shutting down coordinator and canceling scheduled updates")
         if self._scheduled_update:
-            self._scheduled_update()
+            self._scheduled_update.cancel()
             self._scheduled_update = None

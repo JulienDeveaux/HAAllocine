@@ -1,10 +1,10 @@
 {
   "domain": "haallocine",
   "name": "Allocine Weekly Releases",
-  "codeowners": ["@julien"],
+  "codeowners": ["@JulienDeveaux"],
   "config_flow": true,
   "dependencies": ["http"],
-  "documentation": "https://github.com/julien/HAAllocine",
+  "documentation": "https://github.com/JulienDeveaux/HAAllocine",
   "iot_class": "cloud_polling",
   "requirements": ["requests>=2.32.5", "beautifulsoup4>=4.12.3"],
   "single_config_entry": true,
