@@ -17,7 +17,7 @@ A Home Assistant custom integration that displays the **top 3 most popular movie
 2. **Extracts** movie data from the page's JavaScript (jsEntities variable)
 3. **Sorts** movies by popularity ("want to see" count)
 4. **Filters** to keep only the top 3 most anticipated movies
-5. **Downloads** poster images to `.cache/haallocine/` directory
+5. **Downloads** poster images to `/media/allocine/` directory
 6. **Serves** images via HTTP view at `/api/haallocine/poster/{movie_id}.jpg`
 7. **Updates** automatically every Wednesday at 3:00 AM
 
@@ -68,7 +68,7 @@ service: haallocine.refresh
 
 ### Caching
 
-- **Location**: `{hass_config_dir}/.cache/haallocine/`
+- **Location**: `{hass_config_dir}/media/allocine/`
 - **Filenames**: `1.jpg`, `2.jpg`, `3.jpg` (ranked by popularity)
 - **Cleanup**: Cache is cleared before each update
 - **Size**: ~3 images × 200KB = ~600KB per week
