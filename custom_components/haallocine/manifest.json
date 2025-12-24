@@ -1,0 +1,12 @@
+{
+  "domain": "haallocine",
+  "name": "Allocine Weekly Releases",
+  "codeowners": ["@julien"],
+  "config_flow": true,
+  "dependencies": ["http"],
+  "documentation": "https://github.com/julien/HAAllocine",
+  "iot_class": "cloud_polling",
+  "requirements": ["requests==2.31.0", "beautifulsoup4==4.12.3"],
+  "single_config_entry": true,
+  "version": "1.0.0"
+}

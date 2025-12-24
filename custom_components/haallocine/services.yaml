@@ -1,0 +1,4 @@
+refresh:
+  name: Refresh movie data
+  description: Manually refresh movie data from Allocine.fr
+  fields: {}

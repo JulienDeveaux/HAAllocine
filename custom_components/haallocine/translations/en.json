@@ -1,0 +1,19 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Setup Allocine Weekly Releases",
+        "description": "This integration will scrape Allocine.fr weekly movie releases every Wednesday and display posters in the media browser."
+      }
+    },
+    "abort": {
+      "already_configured": "This integration is already configured. Only one instance is allowed."
+    }
+  },
+  "services": {
+    "refresh": {
+      "name": "Refresh movie data",
+      "description": "Manually refresh movie data from Allocine.fr"
+    }
+  }
+}
