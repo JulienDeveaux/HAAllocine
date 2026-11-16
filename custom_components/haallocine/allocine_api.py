@@ -31,6 +31,14 @@ class AllocineAPI:
     """API for scraping Allocine.fr."""
 
     WEEKLY_URL = "https://www.allocine.fr/film/sorties-semaine/"
+    HEADERS = {
+        "User-Agent": (
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 "
+            "(KHTML, like Gecko) Chrome/131.0 Safari/537.36"
+        ),
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "fr-FR,fr;q=0.9",
+    }
 
     def __init__(self, cache_dir: Path) -> None:
         """Initialize API with cache directory."""
@@ -42,7 +50,7 @@ class AllocineAPI:
         """Scrape current week's movie releases (blocking operation)."""
         _LOGGER.info("Starting scrape of Allocine weekly releases")
         try:
-            response = requests.get(self.WEEKLY_URL, timeout=30)
+            response = requests.get(self.WEEKLY_URL, headers=self.HEADERS, timeout=30)
             response.raise_for_status()
 
             soup = BeautifulSoup(response.text, "html.parser")
@@ -193,7 +201,7 @@ class AllocineAPI:
 
                 _LOGGER.debug("Downloading poster #%d for %s from %s", rank, movie.title, movie.poster_url)
 
-                response = requests.get(movie.poster_url, timeout=30)
+                response = requests.get(movie.poster_url, headers=self.HEADERS, timeout=30)
                 response.raise_for_status()
 
                 poster_path.write_bytes(response.content)
